@@ -6,6 +6,18 @@ var Blackjack = function () {
 };
 
 /**
+* Appends the cards, to the UI
+* @param card to be added
+*/
+Blackjack.prototype.appendCardsToUI = function ( card ) {
+	var playerBoard = document.getElementById("player");
+	var cardElement = document.createElement("div");
+	cardElement.className = "card " + this.player.playerHand[card].description.toLowerCase() + " " + this.player.playerHand[card].suit.toLowerCase();
+	cardElement.innerHTML = this.player.playerHand[card].description + " of " + this.player.playerHand[card].suit;
+	playerBoard.appendChild(cardElement);
+};
+
+/**
 * This will add a card to the hand
 */
 Blackjack.prototype.addCardToHand = function () {
@@ -15,21 +27,11 @@ Blackjack.prototype.addCardToHand = function () {
 /**
 * Method that handles the current hand
 */
-Blackjack.prototype.currentHand = function () {
-	var hitButton, standButton;
-
+Blackjack.prototype.createNewHand = function () {
 	this.addCardToHand();
 	this.addCardToHand();
-
-	if(this.isBlackjack(this.calculateScore())) {
-		console.log("BLACKJACK");
-		document.getElementById("message").innerHTML = "You Win!";
-	}
-
-	if(this.isBusted(this.calculateScore())) {
-		console.log("BUSTED");
-		document.getElementById("message").innerHTML = "You Lose!";
-	}
+	this.appendCardsToUI(0);
+	this.appendCardsToUI(1);
 };
 
 /**
@@ -37,16 +39,20 @@ Blackjack.prototype.currentHand = function () {
 */
 Blackjack.prototype.hit = function () {
 	console.log("HIT");
-	console.log(this.player.playerHand);
 	this.addCardToHand();
+	this.appendCardsToUI(this.player.playerHand.length - 1);
+	this.calculateScore();
 };
 
 /**
 * Stand
+* @return boolean
 */
-Blackjack.prototype.stand = function () {
+Blackjack.prototype.isStanding = function () {
 	console.log("STAND");
 	this.clearCurrentHand();
+	this.calculateScore();
+	return true;
 };
 
 /**
@@ -81,6 +87,7 @@ Blackjack.prototype.isBusted = function ( score ) {
 
 /**
 * Calculate the score
+* @return score
 */
 Blackjack.prototype.calculateScore = function () {
 	var i, j, k, cardDescription, aces;
@@ -130,6 +137,5 @@ Blackjack.prototype.play = function () {
 
 	this.deck.createDeck();
 	this.deck.shuffleDeck();
-
-	this.currentHand();
+	this.createNewHand();
 };

@@ -17,6 +17,6 @@ var UserInterface = function () {
 	}
 
 	function standClicked() {
-		that.game.stand();
+		that.game.isStanding();
 	}
 }

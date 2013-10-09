@@ -21,9 +21,6 @@ Blackjack.prototype.currentHand = function () {
 	this.addCardToHand();
 	this.addCardToHand();
 
-	this.appendCardToUI(0);
-	this.appendCardToUI(1);
-
 	if(this.isBlackjack(this.calculateScore())) {
 		console.log("BLACKJACK");
 		document.getElementById("message").innerHTML = "You Win!";
@@ -38,18 +35,18 @@ Blackjack.prototype.currentHand = function () {
 /**
 * Hit
 */
-Blackjack.prototype.hit = function (hit) {
-	if ( hit ) {
-		this.addCardToHand();
-		this.appendCardToUI(this.player.playerHand.length - 1);
-	}
+Blackjack.prototype.hit = function () {
+	console.log("HIT");
+	console.log(this.player.playerHand);
+	this.addCardToHand();
 };
 
 /**
 * Stand
 */
 Blackjack.prototype.stand = function () {
-	// do nothing atm
+	console.log("STAND");
+	this.clearCurrentHand();
 };
 
 /**

@@ -5,7 +5,8 @@
 
 	<script>
 		window.onload = function(){
-			
+			var startGame = new UserInterface();
+			startGame.game.play();
 		}
 	</script>
 	<style>
@@ -79,7 +80,7 @@
 		<div id="player" class="player"></div>
 		<div style="clear: both;"></div>
 		<div class="commands">
-			<a href=#" id="hit" class="button">Hit</a>
+			<a href="#" id="hit" class="button">Hit</a>
 			<a href="#" id="stand" class="button">Stand</a>
 		</div>
 		<p id="score"></p>

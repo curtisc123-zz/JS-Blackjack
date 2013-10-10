@@ -15,7 +15,7 @@ var UserInterface = function () {
 	standButton.addEventListener("click", standClicked, false);
 
 	function dealClicked () {
-		document.getElementById("score").innerHTML = "";
+		document.getElementById("message").innerHTML = "";
 
 		// Show the game controls
 		hitButton.style.display = "inline-block";
@@ -51,7 +51,6 @@ var UserInterface = function () {
 
 		if (that.game.isBusted( that.game.calculateScore() )) {
 			document.getElementById("message").innerHTML = "Busted! Loser!";
-			console.log("You Lose.");
 			hitButton.style.display = "none";
 			standButton.style.display = "none";
 		}

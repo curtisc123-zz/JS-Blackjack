@@ -3,18 +3,7 @@
 */
 var Blackjack = function () {
 	this.player = new Player();
-};
-
-/**
-* Appends the cards, to the UI
-* @param card to be added
-*/
-Blackjack.prototype.appendCardsToUI = function ( card ) {
-	var playerBoard = document.getElementById("player");
-	var cardElement = document.createElement("div");
-	cardElement.className = "card " + this.player.playerHand[card].description.toLowerCase() + " " + this.player.playerHand[card].suit.toLowerCase();
-	cardElement.innerHTML = this.player.playerHand[card].description + " of " + this.player.playerHand[card].suit;
-	playerBoard.appendChild(cardElement);
+	this.deck = new Deck();
 };
 
 /**
@@ -28,22 +17,17 @@ Blackjack.prototype.addCardToHand = function () {
 * Method that handles the current hand
 */
 Blackjack.prototype.createNewHand = function () {
+	this.clearCurrentHand();
 	this.addCardToHand();
 	this.addCardToHand();
 	this.calculateScore();
-
-	this.appendCardsToUI(0);
-	this.appendCardsToUI(1);
 };
 
 /**
 * Hit
 */
 Blackjack.prototype.hit = function () {
-	console.log("HIT");
 	this.addCardToHand();
-	this.appendCardsToUI(this.player.playerHand.length - 1);
-	this.calculateScore();
 };
 
 /**
@@ -51,11 +35,6 @@ Blackjack.prototype.hit = function () {
 * @return boolean
 */
 Blackjack.prototype.isStanding = function () {
-	console.log("STAND");
-	this.clearCurrentHand();
-	this.calculateScore();
-
-	this.createNewHand();
 	return true;
 };
 
@@ -132,14 +111,4 @@ Blackjack.prototype.calculateScore = function () {
 
 	document.getElementById("score").innerHTML = score;
 	return score;
-};
-
-Blackjack.prototype.play = function () {
-	this.deck = new Deck();
-	var hitButton = document.getElementById("hit");
-	var standButton = document.getElementById("stand");
-
-	this.deck.createDeck();
-	this.deck.shuffleDeck();
-	this.createNewHand();
 };

@@ -1,0 +1,78 @@
+body {
+	font-size: 16px;
+	font-family: Arial;
+	background: #15965b;
+	padding: 10px;
+	margin: 0;
+}
+.blackjack {
+
+}
+.commands {
+	width: 100%;
+	margin-top: 10px;
+}
+.score {
+	font-size: 36px;
+	color: #FFF;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #000;
+	margin: 10px 0 0;
+}
+.message {
+	font-size: 24px;
+}
+.button {
+	display: inline-block;
+	width: auto;
+	height: 40px;
+	line-height: 40px;
+	background: #fb4141;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0 30px;
+	margin-right: 10px;
+	box-shadow: 0 6px 0 #bc4040;
+	border-top: 1px solid #e36e6e;
+}
+.button:hover {
+	box-shadow: 0 8px 0 #bc4040;
+	-webkit-transform: translateY(-2px);
+}
+.button:active {
+	-webkit-transform: translateY(4px);
+	box-shadow: 0 3px 0 #bc4040;
+}
+
+/**
+CARDS
+**/
+.card:last-child {
+	margin-right: 0;
+}
+.card {
+	width: 150px;
+	height: 220px;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px #333;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(left, #ffffff 0%, #f6f6f6 49%, #ffffff 100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(left, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* IE10+ */
+	background: linear-gradient(to right, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* W3C */
+	margin: 0 10px 10px 0;
+	float: left;
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: 98px;
+	font-weight: bold;
+}
+.clubs, .spades {
+	color: #000;
+}
+.hearts, .diamonds {
+	color: #F00;
+}

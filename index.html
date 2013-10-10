@@ -2,95 +2,18 @@
 <html>
 <head>
 	<title>Prototype practice</title>
-
+	<link rel="stylesheet" href="css/blackjack.css">
 	<script>
 		window.onload = function(){
 			var startGame = new UserInterface();
-			startGame.game.play();
 		}
 	</script>
-	<style>
-		body {
-			font-size: 16px;
-			font-family: Arial;
-			background: #15965b;
-			padding: 10px;
-			margin: 0;
-		}
-		.blackjack {
-			width: 960px;
-			height: 316px;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin: -158px 0 0 -480px;
-		}
-		.commands {
-			width: 100%;
-			margin-top: 10px;
-			text-align: center;
-		}
-		.score {
-			text-align: center;
-		}
-		.message {
-			text-align: center;
-		}
-		.button {
-			display: inline-block;
-			width: auto;
-			height: 40px;
-			line-height: 40px;
-			background: #fb4141;
-			color: #FFF;
-			text-align: center;
-			font-weight: bold;
-			text-decoration: none;
-			padding: 0 30px;
-			margin-right: 10px;
-			box-shadow: 0 6px 0 #bc4040;
-			border-top: 1px solid #e36e6e;
-		}
-		.button:hover {
-			box-shadow: 0 8px 0 #bc4040;
-			-webkit-transform: translateY(-2px);
-		}
-		.button:active {
-			-webkit-transform: translateY(4px);
-			box-shadow: 0 3px 0 #bc4040;
-		}
-
-		/**
-		CARDS
-		**/
-		.card:last-child {
-			margin-right: 0;
-		}
-		.card {
-			width: 150px;
-			height: 220px;
-			border-radius: 5px;
-			box-shadow: 0 1px 2px #333;
-			background: #ffffff; /* Old browsers */
-			background: -moz-linear-gradient(left, #ffffff 0%, #f6f6f6 49%, #ffffff 100%); /* FF3.6+ */
-			background: -webkit-linear-gradient(left, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-			background: -o-linear-gradient(left, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* Opera 11.10+ */
-			background: -ms-linear-gradient(left, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* IE10+ */
-			background: linear-gradient(to right, #ffffff 0%,#f6f6f6 49%,#ffffff 100%); /* W3C */
-			margin: 0 10px 10px 0;
-			float: left;
-			text-align: center;
-			box-sizing: border-box;
-			padding-top: 98px;
-			font-weight: bold;
-		}
-		.clubs, .spades {
-			color: #000;
-		}
-		.hearts, .diamonds {
-			color: #F00;
-		}
-	</style>
+	<script src="js/global.js"></script>
+	<script src="js/Card.js"></script>
+	<script src="js/Deck.js"></script>
+	<script src="js/Player.js"></script>
+	<script src="js/Blackjack.js"></script>
+	<script src="js/UI.js"></script>
 </head>
 
 <body>
@@ -98,18 +21,16 @@
 		<div id="player" class="player"></div>
 		<div style="clear: both;"></div>
 		<div class="commands">
-			<a href="#" id="hit" class="button">Hit</a>
-			<a href="#" id="stand" class="button">Stand</a>
+			<a href="#" id="deal" class="button">Deal</a>
+			<a href="#" id="hit" class="button" style="display: none;">Hit</a>
+			<a href="#" id="stand" class="button" style="display: none;">Stand</a>
 		</div>
-		<p id="score" class="score"></p>
-		<p id="message" class="message"></p>
+		<p class="score">
+			<span id="score"></span>
+			<span id="message" class="message"></span>
+		</p>
 	</div>
 
-<script src="js/global.js"></script>
-<script src="js/Card.js"></script>
-<script src="js/Deck.js"></script>
-<script src="js/Player.js"></script>
-<script src="js/Blackjack.js"></script>
-<script src="js/UI.js"></script>
+
 </body>
 </html>

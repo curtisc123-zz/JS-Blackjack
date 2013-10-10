@@ -17,9 +17,24 @@
 			padding: 10px;
 			margin: 0;
 		}
+		.blackjack {
+			width: 960px;
+			height: 316px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -158px 0 0 -480px;
+		}
 		.commands {
 			width: 100%;
 			margin-top: 10px;
+			text-align: center;
+		}
+		.score {
+			text-align: center;
+		}
+		.message {
+			text-align: center;
 		}
 		.button {
 			display: inline-block;
@@ -48,6 +63,9 @@
 		/**
 		CARDS
 		**/
+		.card:last-child {
+			margin-right: 0;
+		}
 		.card {
 			width: 150px;
 			height: 220px;
@@ -76,15 +94,15 @@
 </head>
 
 <body>
-	<div id="blackjack">
+	<div id="blackjack" class="blackjack">
 		<div id="player" class="player"></div>
 		<div style="clear: both;"></div>
 		<div class="commands">
 			<a href="#" id="hit" class="button">Hit</a>
 			<a href="#" id="stand" class="button">Stand</a>
 		</div>
-		<p id="score"></p>
-		<p id="message"></p>
+		<p id="score" class="score"></p>
+		<p id="message" class="message"></p>
 	</div>
 
 <script src="js/global.js"></script>

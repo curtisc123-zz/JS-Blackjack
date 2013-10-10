@@ -30,6 +30,8 @@ Blackjack.prototype.addCardToHand = function () {
 Blackjack.prototype.createNewHand = function () {
 	this.addCardToHand();
 	this.addCardToHand();
+	this.calculateScore();
+
 	this.appendCardsToUI(0);
 	this.appendCardsToUI(1);
 };
@@ -52,6 +54,8 @@ Blackjack.prototype.isStanding = function () {
 	console.log("STAND");
 	this.clearCurrentHand();
 	this.calculateScore();
+
+	this.createNewHand();
 	return true;
 };
 
